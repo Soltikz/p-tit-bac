@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request, url_for
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../html")
 
 lobby = []
 
@@ -14,9 +14,10 @@ def add_player():
     lobby.append(player_name)
     return redirect(url_for('lobby', player=player_name))
 
-@app.route('/lobby/<player>')
-def lobby(player):
-    return render_template('lobby.html', player=player, players=lobby)
+@app.route('../html/lobby.html')
+def lobby():
+    players = ["Joueur 1", "Joueur 2", "Joueur 3"]  # Exemple de liste de joueurs
+    return render_template('lobby.html', players=players)
 
 if __name__ == '__main__':
     app.run(debug=True)
