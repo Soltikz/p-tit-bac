@@ -17,11 +17,21 @@
 </head>
 <body>
 <div ID="root">
-    <form action="lobby.html" method="POST">
-        <label for="player_name">Enter your name:</label>
-        <input type="text" id="player_name" name="player_name">
-        <button type="submit">Join Lobby</button>
-    </form>
+    <h1>Bienvenue sur notre site</h1>
+    <p>Entrez votre pseudo :</p>
+    <input type="text" id="pseudoInput">
+    <button onclick="redirectToLobby()">Accéder au Lobby</button>
+
+    <script>
+        function redirectToLobby() {
+            // Récupérer le pseudo
+            var pseudo = document.getElementById("pseudoInput").value;
+
+            // Rediriger vers la page du lobby avec le pseudo comme paramètre
+            window.location.href = "lobby.html?pseudo=" + encodeURIComponent(pseudo);
+        }
+    </script>
+    
 </div>
 </body>
 </html>

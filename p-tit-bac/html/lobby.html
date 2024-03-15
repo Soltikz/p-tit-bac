@@ -11,16 +11,28 @@
     <link href="../CSS/style.css" rel="stylesheet">
     <meta name="author" content="Lucas M"/>
     <meta rel="apple-touch-icon" href="...">
+    <script type="texte/pyton" src="../python/index.py"></script>
     <! rajouter meta property une fois avoir compris son utilité>
 </head>
 <body>
- <h1>Lobby de jeu</h1>
-    <h2>Liste des joueurs dans le lobby :</h2>
-    <ul>
-        {% for p in players %}
-            <li>{{ players }}</li>
-        {% end for %}
-    </ul>
+     <h1>Bienvenue dans le Lobby</h1>
+    <div id="pseudoContainer">
+        <!-- Pseudo affiché dynamiquement ici -->
+    </div>
+
+    <script>
+        // Récupérer le pseudo de l'URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var pseudo = urlParams.get('pseudo');
+
+        // Créer un élément pour afficher le pseudo
+        var pseudoElement = document.createElement('div');
+        pseudoElement.classList.add('pseudo');
+        pseudoElement.textContent = pseudo;
+
+        // Ajouter l'élément au conteneur
+        document.getElementById("pseudoContainer").appendChild(pseudoElement);
+    </script>
 </body>
 
 </html>

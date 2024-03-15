@@ -5,3 +5,27 @@ color: white;
 .ID{
 color:white;
 }
+
+/* Styles pour la bulle du pseudo */
+.pseudo {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px 20px 20px 5px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style pour la couronne du créateur */
+.pseudo.creator {
+    background-color: #ffc107; /* Couleur de la couronne */
+}
+
+/* Style pour le texte du créateur */
+.pseudo.creator::after {
+    content: "👑"; /* Unicode pour une couronne */
+    margin-left: 5px;
+}

@@ -6,7 +6,7 @@ lobby = []
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return Flask.render_templar('index.html')
 
 @app.route('/add_player', methods=['POST'])
 def add_player():
@@ -14,10 +14,11 @@ def add_player():
     lobby.append(player_name)
     return redirect(url_for('lobby', player=player_name))
 
+joueurs = [{"Joueur1"},{"Joueur2"}, {"Joueur3"}, {"Joueur4"}]
+
 @app.route('../html/lobby.html')
 def lobby():
-    players = ["Joueur 1", "Joueur 2", "Joueur 3"]  # Exemple de liste de joueurs
-    return render_template('lobby.html', players=players)
+    return render_template('../html/lobby.html', joueurs=joueurs)
 
 if __name__ == '__main__':
     app.run(debug=True)
